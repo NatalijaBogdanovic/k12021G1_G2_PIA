@@ -1,0 +1,40 @@
+<p>detalji works!</p>
+  <table>
+        <tr>
+          <th>Proizvod</th>
+          <th>Tekst</th>
+          <th>Datum</th>
+          <th>Korisnik</th>
+        </tr>
+@for(k of komentari; track k.idK){
+  @if(k.status=="Prihvaceno"){
+
+    @if(k.proizvod==proizvod.naziv){
+
+        <tr>
+          <td>{{k.proizvod}}</td>
+          <td>{{k.tekst}}</td>
+          <td>{{k.datum}}</td>
+          <td>{{k.ime}} {{k.prezime}}</td>
+        </tr>
+
+
+    }
+
+  }
+
+}
+</table>
+
+<p>Dodaj komentar:</p>
+<!--<input type="text" [(ngModel)]="komentar.proizvod" placeholder="Unesite naziv proizvoda..."> nema sta ja da unosim naziv proizvoda to je stranica detalja za konkretan proizvod tkd se zna da za njega unosim komentar
+<label for="proizvod">Izaberite proizvod:</label>
+<select id="proizvod" [(ngModel)]="izabraniProizvod">
+  <option value="" disabled selected>Izaberite proizvod</option>
+  <option value="Pedigree Adult">Pedigree Adult</option>
+  <option value="Pedigree Jung">Pedigree Jung</option>
+  <option value="Whiskas Adult">Whiskas Adult</option>
+  <option value="Whiskas Jung">Whiskas Jung</option>
+</select>-->
+<input type="text" [(ngModel)]="komentar.tekst" placeholder="Unesite komentar...">
+<button (click)="dodajKomentar()">Potvrdi</button>

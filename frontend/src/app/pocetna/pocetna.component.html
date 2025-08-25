@@ -1,0 +1,13 @@
+<p>pocetna works!</p>
+<input type="text" [(ngModel)]="username" placeholder="Unesite korisnicko ime...">
+<input type="password" [(ngModel)]="password" placeholder="Unesite lozinku...">
+<!--<select [(ngModel)]="tip">
+  <option value="kupac">Kupac</option>
+  <option value="prodavac">Prodavac</option>
+</select>-->
+<label >Kupac</label>
+<input type="radio" [(ngModel)]="tip" value="kupac">
+<label >Prodavac</label>
+<input type="radio" [(ngModel)]="tip" value="prodavac">
+<button (click)="login()">Prijavi se</button>
+<p class="error">{{poruka}}</p>

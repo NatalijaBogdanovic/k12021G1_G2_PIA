@@ -1,0 +1,51 @@
+<p>prodavac works!</p>
+<button (click)="odjaviSe()">Odjavi se</button>
+<p>{{ prodavacObj.ime }} {{ prodavacObj.prezime }} {{prodavacObj.datum_rodjenja}}</p>
+<table>
+  <tr>
+    <th>IdN</th>
+    <th>Kupac</th>
+    <th>Datum</th>
+    <th>Naruceni proizvodi</th>
+  </tr>
+  @for(narudzbina of narudzbine; track narudzbina.idN){
+    <tr>
+      <td>{{narudzbina.idN}}</td>
+      <td>{{narudzbina.kupac}}</td>
+      <td>{{narudzbina.datum}}</td>
+      @for(np of proizvodiNarudzbina; track np.proizvod){
+        @if(np.narudzbina === narudzbina.idN){
+          <td>{{np.proizvod}}</td>
+        }
+      }
+    </tr>
+  }
+  <tr></tr>
+</table>
+<p>Najverniji kupac: {{ kupac.ime }} {{ kupac.prezime }}</p>
+<hr>
+<h3>KOMENTARI KORISNIKA</h3>
+<table>
+  <tr>
+    <th>Proizvod</th>
+    <th>Tekst</th>
+    <th>Datum</th>
+    <th>Korisnik</th>
+  </tr>
+  @for(k of komentari; track k.idK){
+     <tr [class.orange]="k.status=='Neobradjeno'">
+      <td>{{k.proizvod}}</td>
+      <td>{{k.tekst}}</td>
+      <td>{{k.datum}}</td>
+      <td>{{k.ime}} {{k.prezime}}</td>
+      @if(k.status=="Neobradjeno"){
+        <button (click)="prihvati(k)">Prihvati</button>
+        <button (click)="obrisi(k)">Obrisi</button>
+
+      }
+
+    </tr>
+
+  }
+
+</table>

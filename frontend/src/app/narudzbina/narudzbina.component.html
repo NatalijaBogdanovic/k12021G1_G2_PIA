@@ -1,0 +1,22 @@
+<p>narudzbina works!</p>
+@if(odabrani.length>0){
+  <table>
+  <tr>
+    <th>Naziv</th>
+    <th>Količina</th>
+  </tr>
+  @for(i of odabrani; track i.naziv){
+    <tr>
+      <td>{{ i.naziv }}</td>
+      <td>{{ i.kolicina }}</td>
+      <button (click)="ukloniProizvod(i)">Ukloni</button>
+    </tr>
+  }
+</table>
+<button (click)="potvrdiNarudzbinu()">Potvrdi narudžbinu</button>
+
+}@else {
+  Korpa je prazna.
+}
+
+
